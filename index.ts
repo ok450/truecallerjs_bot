@@ -236,7 +236,9 @@ Deno.serve(
           responseBody.message === "Sent"
         )
       ) {
-        return sendTgMessage(responseBody.message);
+        return sendTgMessage(
+  `Login failed. Status: ${responseBody.status}; Message: ${responseBody.message}`
+);
       }
 
       await kv.set(
